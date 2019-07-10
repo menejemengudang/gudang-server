@@ -7,8 +7,10 @@ const dbName = 'gudang';
 const express = require('express'),
     app = express(),
     routerUser = require('./routes/routerUser'),
-    routerProduct = require('./routes/routerProduct')
-port = 3000,
+    routerProduct = require('./routes/routerProduct'),
+    routerGudang = require('./routes/routerGudang'),
+    routerPengiriman = require('./routes/routerPengiriman'),
+    port = 3000,
     cors = require('cors'),
     mongoose = require('mongoose');
 mongoose.set('findAndUpdate', false)
@@ -28,7 +30,8 @@ app.use(express.urlencoded({
     extends: false
 }))
 app.use('/user', routerUser)
-app.use('/product', routerProduct)
+app.use('/product', routerGudang)
+app.use('/pengiriman', routerPengiriman)
 
 
 module.exports = app
